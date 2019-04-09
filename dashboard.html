@@ -1,0 +1,116 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Xpenses</title>
+        <meta name="description" content="Xpenses web application for BESTEM Hackaton 2019">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/dashboard.css">
+        <script src="./js/main.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+        <script>
+        // Initialize Firebase
+            var config = {
+                apiKey: "AIzaSyDpm7q5_6Jv1vkNm2GvwtbVlXkq1RuGuW4",
+                authDomain: "arggo2.firebaseapp.com",
+                databaseURL: "https://arggo2.firebaseio.com",
+                projectId: "arggo2",
+                storageBucket: "arggo2.appspot.com",
+                messagingSenderId: "958498516411"
+            };
+            firebase.initializeApp(config);
+        </script>        
+    </head>
+    <body>
+        
+    
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#toggle" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                      <span class="navbar-toggler-icon" style="color:black !important"></span>
+            </button>
+            <a style="color:black; font-weight: bold; font-family: 'Open Sans', sans-serif;"class="navbar-brand" href="index.html">Xpenses</a>
+                  
+            <div class="collapse navbar-collapse" id="toggle">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item active">
+                        <a style="color:black; font-weight: bold; font-family: 'Open Sans', sans-serif;" class="nav-link" href="#">Signout</a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <p>Venit:</p>
+                    <p>Cheltuieli:</p>
+                    <p>Economii:</p>
+                </div>
+                <div class="col-md-4">
+                    <p id="venitTotal">0</p>
+                    <p id="cheltuieliTotal">0</p>
+                    <p id="economiiTotal">0</p>                    
+                </div>
+                <div class="col-md-4"></div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <button id="myBtn" onclick=" isLogged(); openModalVenituri()" type="button" class="btn btn-primary">Adauga Venit</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" onclick="openModalCheltuieli()" class="btn btn-danger">Adauga Cheltuieli</button>
+                </div>
+                <div class="col-md-4">
+                    <button type="button" onclick="openModalEconomii()" class="btn btn-success">Adauga Economii</button>
+                </div>
+            </div>
+            <!-- The Modal -->
+            <div id="myVenituri" class="modal">
+                <!-- Modal content -->
+                <div class="modal-content">
+                    <span onclick="closeModalVenituri()" class="close">&times;</span>
+                    <label>Venit Salariu:</label>
+                    <input type="text" placeholder="Venit salariu" id="venitSalariu">
+                    <label>Venit Bursa:</label>
+                    <input type="text" placeholder="Venit bursa" id="venitBursa">
+                    <label>Venit Parinti:</label>
+                    <input type="text" placeholder="Venit parinti" id="venitParinti">
+                    <button onclick="closeModalVenituri(); updateDataVenituri()" class="btn btn-primary">Salveaza</button>                
+                </div>
+            </div>
+            <div id="myCheltuieli" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span onclick="closeModalCheltuieli()" class="close">&times;</span>
+                        <label>Cheltuieli Alimentare:</label>
+                        <input type="text" placeholder="Cheltuieli Alimentare" id="CheltuieliAlimentare">
+                        <label>Cheltuieli Distractie:</label>
+                        <input type="text" placeholder="Cheltuieli Distractie" id="CheltuieliDistractie">
+                        <label>Cheltuieli Studii:</label>
+                        <input type="text" placeholder="Cheltuieli Studii" id="CheltuieliStudii">
+                        <label>Cheltuieli Tehnologie:</label>
+                        <input type="text" placeholder="Cheltuieli Tehnologie" id="CheltuieliTehnologie">
+                        <label>Cheltuieli Fashion:</label>
+                        <input type="text" placeholder="Cheltuieli Fashion" id="CheltuieliFashion">
+                        <label>Altele:</label>
+                        <input type="text" placeholder="Altele" id="CheltuieliAltele">
+                        <button onclick="closeModalCheltuieli(); updateDataCheltuieli() " class="btn btn-primary">Salveaza</button>                
+                    </div>
+            </div>
+            <div id="myEconomii" class="modal">
+                    <!-- Modal content -->
+                    <div class="modal-content">
+                        <span onclick="closeModalEconomii()" class="close">&times;</span>
+                        <label>Economie Eveniment:</label>
+                        <input type="text" placeholder="Economie Eveniment" id="EconomieEveniment">
+                        <label>Economii cu scop:</label>
+                        <input type="text" placeholder="Economii cu scop" id="EconomiiScop">
+                        <label>Alte Economii:</label>
+                        <input type="text" placeholder="Alte Economii" id="EconomiiAltele">
+                        <button onclick="closeModalEconomii(); updateDataEconomii()" class="btn btn-primary">Salveaza</button>                
+                    </div>
+                </div>
+        </div>
+    </body>
+</html>

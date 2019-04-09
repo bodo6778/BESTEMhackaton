@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Xpenses</title>
+        <meta name="description" content="Xpenses web application for BESTEM Hackaton 2019">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="css/login.css">
+        <script src="./js/main.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet"> 
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/5.9.3/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyDpm7q5_6Jv1vkNm2GvwtbVlXkq1RuGuW4",
+            authDomain: "arggo2.firebaseapp.com",
+            databaseURL: "https://arggo2.firebaseio.com",
+            projectId: "arggo2",
+            storageBucket: "arggo2.appspot.com",
+            messagingSenderId: "958498516411"
+          };
+          firebase.initializeApp(config);
+        </script>
+    </head>
+    <body>
+          <nav class="navbar navbar-expand-lg">
+              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#toggle" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="color:white !important"></span>
+              </button>
+              <a style="color:white; font-weight: bold; font-family: 'Open Sans', sans-serif;"class="navbar-brand" href="index.html">Xpenses</a>
+            
+              <div class="collapse navbar-collapse" id="toggle">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                  <li class="nav-item">
+                    <a style="color:white; font-weight: bold; font-family: 'Open Sans', sans-serif;" class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                  </li>
+                  <li class="nav-item active">
+                      <a style="color:white; font-weight: bold; font-family: 'Open Sans', sans-serif;" class="nav-link" href="#">Login</a>
+                    </li>
+                </ul>
+              </div>
+            </nav>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-3"></div>
+                    <div class="col-md-6">
+                        <div id="login_div" class="white-background" >
+                                <div>
+                                <label for="email" style="color:white; font-weight: bold;"><a>Email</a></label>
+                                <input type="text" placeholder="Enter Email" id="email_field" required>
+                            
+                                <label for="psw" style="color:white; font-weight: bold;"><a>Password</a></label>
+                                <input type="password" placeholder="Enter Password" id="password_field" required>
+                                    
+                                <button onclick="login()" type="submit"><a style="color:white; font-weight: bold;">Login</a></button>
+                                </div>
+                        </div>
+                        <div id="user_div" style="display:none">
+                            <h3>Welcome User</h3>
+                            <p id="user_para">Welcome! You're currently logged in </p>
+                            <button class="btn btn-primary"><a style="margin-bottom: 7px;text-decoration: none; color:white;"href="dashboard.html">Dashboard</a></button>
+                            <button onclick="logout()">Logout</button>
+                        </div>
+                    </div>
+                    <div class="col-md-3"></div>
+                </div>
+            </div>
+            <script
+            src="https://code.jquery.com/jquery-3.3.1.js"
+            integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="
+            crossorigin="anonymous"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>         
+            <script src="./js/main.js"></script>
+    </body>
+</html>
